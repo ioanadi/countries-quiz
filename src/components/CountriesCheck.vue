@@ -42,9 +42,9 @@ export default {
     },
     watch: {
         answer: function (val) {
-            if (val==='') return
-            if (val.length < 3) this.error = 'The answer must have more than 2 characters'
-            else if (!/^[a-zA-Z]+$/.test(val)) this.error = 'The answer must contain only letters'
+            if (!val) this.error = ''
+            else if (val.length < 3) this.error = 'The answer must have more than 2 characters'
+            else if (val.length > 0 && !/^[a-zA-Z]+$/.test(val)) this.error = 'The answer must contain only letters'
             else this.error = ''
         },
     },
